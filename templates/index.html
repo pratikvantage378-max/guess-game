@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess Game</title>
+
+    <style>
+        body {
+            text-align: center;
+            background: url("{{ url_for('static', filename='bg.jpg') }}");
+            background-size: cover;
+            color: white;
+            font-family: Arial;
+        }
+
+        .box {
+            background: rgba(0,0,0,0.6);
+            padding: 20px;
+            margin-top: 50px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Guess the Number</h2>
+
+    <!-- RANGE INPUT -->
+    <form method="POST">
+        <input name="low" placeholder="Min" required>
+        <input name="high" placeholder="Max" required>
+        <button name="action" value="start">Start</button>
+    </form>
+
+    <!-- GUESS INPUT -->
+    <form method="POST">
+        <input name="guess" placeholder="Enter guess / restart / stop">
+        <button name="action" value="guess">Submit</button>
+    </form>
+
+    <!-- BUTTONS -->
+    <form method="POST">
+        <button name="action" value="restart">Restart</button>
+        <button name="action" value="stop">Stop</button>
+    </form>
+
+    <p>Attempts: {{ attempts }}</p>
+    <p>{{ message }}</p>
+</div>
+
+</body>
+</html>
